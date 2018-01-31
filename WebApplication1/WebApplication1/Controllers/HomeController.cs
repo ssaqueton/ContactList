@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Hello World!?");
+            return Content("Hello World?");
         }
 
         public IActionResult About()
