@@ -4,29 +4,27 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Data;
 using WebApplication1.Models;
+using static WebApplication1.Models.ContactsModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        private ContactsContext dbc = new ContactsContext();
+
         public IActionResult Index()
         {
-            return Content("Hello World?");
+            IEnumerable<Contacts> _viewModel;
+            _viewModel = dbc.Contacts.AsEnumerable();
+            return View(_viewModel);
         }
 
-        public IActionResult About()
+        public IActionResult Add()
         {
-            ViewData["Message"] = "Your application description page.";
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
         }
 
         public IActionResult Error()
