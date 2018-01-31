@@ -13,7 +13,7 @@ namespace WebApplication1.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("ec2-52-15-222-231.us-east-2.compute.amazonaws.com;user=ssaqueton;password=0712Ksl&");
+            optionsBuilder.UseMySQL("server=ec2-52-15-222-231.us-east-2.compute.amazonaws.com;database=contacts;user=ssaqueton;password=0712Ksl&");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
