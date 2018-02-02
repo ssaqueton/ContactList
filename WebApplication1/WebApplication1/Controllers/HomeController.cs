@@ -29,7 +29,8 @@ namespace WebApplication1.Controllers
             return View(_viewModel);
         }
 
-        public IActionResult Add(string fname, string lname, int num)
+        [HttpPost]
+        public IActionResult Add(string fname, string lname, string num)
         {
             Contacts newContacts = new Contacts
             {
