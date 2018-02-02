@@ -24,7 +24,23 @@ namespace WebApplication1.Controllers
 
         public IActionResult Add()
         {
+            IEnumerable<Contacts> _viewModel;
+            _viewModel = dbc.Contacts.AsEnumerable();
+            return View(_viewModel);
+        }
 
+        public IActionResult Add(string fname, string lname, int num)
+        {
+            Contacts newContacts = new Contacts
+            {
+                Fname = fname,
+                Lname = lname,
+                Num = num,
+            };
+            dbc.Contacts.Add(newContacts);
+            dbc.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Error()
